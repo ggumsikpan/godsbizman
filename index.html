@@ -275,9 +275,38 @@
         }
         .book-cover-wrap {
             background: var(--paper);
-            padding:20px 16px 24px;
-            box-shadow: 8px 12px 40px rgba(0,0,0,.5);
-            text-align:center;
+            padding: 0;
+            position: relative;
+            /* 책 3D 효과: 왼쪽 척추(spine) + 바닥 그림자 */
+            border-radius: 2px 4px 4px 2px;
+            box-shadow:
+                -4px 0 6px rgba(0,0,0,.4),          /* 왼쪽 spine 그림자 */
+                -8px 4px 12px rgba(0,0,0,.35),       /* spine 두께감 */
+                6px 6px 20px rgba(0,0,0,.5),         /* 오른쪽 하단 그림자 */
+                18px 16px 45px rgba(0,0,0,.45),      /* 책이 바닥에 놓인 그림자 */
+                0 0 0 1px rgba(0,0,0,.15);            /* 아주 얇은 테두리 */
+            transform: perspective(800px) rotateY(3deg);
+            transform-origin: left center;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+        .book-cover-wrap:hover {
+            transform: perspective(800px) rotateY(1deg) translateX(4px);
+            box-shadow:
+                -4px 0 6px rgba(0,0,0,.4),
+                -10px 4px 16px rgba(0,0,0,.4),
+                10px 10px 30px rgba(0,0,0,.55),
+                24px 20px 55px rgba(0,0,0,.5),
+                0 0 0 1px rgba(0,0,0,.15);
+        }
+        /* 책 왼쪽 척추(spine) 색상 띠 */
+        .book-cover-wrap::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; bottom: 0;
+            width: 10px;
+            background: linear-gradient(to right, #c8c0b0, #e8e0d0);
+            border-radius: 2px 0 0 2px;
+            z-index: 1;
         }
         .book-cover-title-kr {
             font-size:1.4em; font-weight:900;
@@ -671,7 +700,7 @@
         </div>
         <div class="book-grid">
             <div class="book-cover-wrap">
-                <div class="book-cover-img" style="padding:0; overflow:hidden;">
+                <div class="book-cover-img" style="padding:0; overflow:hidden; margin-left:10px; position:relative; z-index:0;">
                     <img src="assets/book-cover.jpg" alt="사업하는 예수쟁이 책 표지"
                          style="width:100%; height:100%; object-fit:cover; display:block;">
                 </div>
