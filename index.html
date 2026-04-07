@@ -602,6 +602,115 @@
             .bi-date { display:none; }
         }
 
+        /* ══ 강의 아카이브 ══ */
+        .archive { padding: 96px 0; background: var(--paper); }
+        .curriculum-phases {
+            display:grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+            gap:16px; margin-top:32px; margin-bottom:56px;
+        }
+        .phase-card {
+            background:var(--warm); border:1px solid var(--line);
+            border-radius:4px; padding:22px 20px;
+        }
+        .phase-card.active { border-color:var(--ink); background:var(--water); }
+        .phase-num {
+            font-family:'Georgia',serif; font-size:.7em;
+            color:var(--gray-lt); letter-spacing:2px; margin-bottom:8px;
+        }
+        .phase-title { font-size:.9em; font-weight:700; margin-bottom:10px; }
+        .phase-chapters { font-size:.8em; color:var(--gray); line-height:1.8; }
+        .phase-chapters .current { color:var(--ink); font-weight:600; }
+
+        .session-card {
+            background:var(--warm); border:1px solid var(--line);
+            border-radius:6px; overflow:hidden; margin-bottom:20px;
+        }
+        .session-header {
+            display:flex; justify-content:space-between; align-items:center;
+            padding:22px 28px; cursor:pointer;
+            transition:background .2s;
+        }
+        .session-header:hover { background:rgba(0,0,0,.02); }
+        .session-meta { display:flex; align-items:center; gap:16px; }
+        .session-date {
+            font-family:'Georgia',serif; font-size:.82em;
+            color:var(--gray); min-width:80px;
+        }
+        .session-num {
+            font-family:'Georgia',serif; font-size:.7em;
+            color:var(--paper); background:var(--ink);
+            border-radius:3px; padding:3px 10px; letter-spacing:1px;
+        }
+        .session-info { flex:1; margin-left:8px; }
+        .session-title { font-size:1em; font-weight:700; line-height:1.5; }
+        .session-sub { font-size:.82em; color:var(--gray); margin-top:2px; }
+        .session-toggle {
+            font-size:1.2em; color:var(--gray-lt); transition:transform .3s;
+            background:none; border:none; cursor:pointer; font-family:inherit;
+        }
+        .session-toggle.open { transform:rotate(180deg); }
+        .session-body { display:none; padding:0 28px 28px; }
+        .session-body.open { display:block; }
+
+        .part-block { margin-bottom:32px; }
+        .part-block:last-child { margin-bottom:0; }
+        .part-label {
+            font-size:.72em; font-weight:700; letter-spacing:2px;
+            color:var(--gray); text-transform:uppercase; margin-bottom:14px;
+            padding-bottom:8px; border-bottom:1px solid var(--line);
+        }
+        .part-title { font-size:1.05em; font-weight:700; margin-bottom:16px; }
+
+        .audio-player {
+            width:100%; margin-bottom:20px;
+            background:var(--paper); border:1px solid var(--line);
+            border-radius:4px; padding:12px 16px;
+        }
+        .audio-player audio { width:100%; height:36px; }
+        .audio-label { font-size:.75em; color:var(--gray); margin-bottom:6px; }
+
+        .note-section { margin-bottom:24px; }
+        .note-section:last-child { margin-bottom:0; }
+        .note-h3 {
+            font-size:.92em; font-weight:700; color:var(--ink);
+            margin-bottom:10px; padding-left:12px;
+            border-left:3px solid var(--ink);
+        }
+        .note-content {
+            font-size:.88em; color:var(--ink-soft); line-height:2;
+            padding-left:16px;
+        }
+        .note-content ul { padding-left:18px; }
+        .note-content li { margin-bottom:4px; }
+        .note-content strong { color:var(--ink); }
+        .note-quote {
+            background:var(--paper); border-left:3px solid var(--accent);
+            padding:14px 18px; margin:12px 0;
+            font-size:.88em; color:var(--ink-soft); line-height:1.9;
+            font-style:italic; border-radius:0 4px 4px 0;
+        }
+        .note-case {
+            background:var(--water); border:1px solid var(--line);
+            border-radius:4px; padding:14px 18px; margin:12px 0;
+            font-size:.85em; color:var(--ink-soft); line-height:1.9;
+        }
+        .note-case-label {
+            font-size:.72em; font-weight:700; letter-spacing:1px;
+            color:var(--accent); margin-bottom:6px;
+        }
+        .materials-row {
+            display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;
+        }
+        .mat-chip {
+            font-size:.78em; color:var(--ink-soft);
+            border:1px solid var(--line); border-radius:3px;
+            padding:6px 14px; text-decoration:none;
+            display:inline-flex; align-items:center; gap:6px;
+            transition:border-color .2s;
+        }
+        .mat-chip:hover { border-color:var(--ink); color:var(--ink); }
+
         /* ══ 선한영향력 ══ */
         .impact { padding: 96px 0; background: var(--paper); }
         .impact-grid {
@@ -684,6 +793,7 @@
     <ul class="nav-menu">
         <li><a href="#intro">소개</a></li>
         <li><a href="#lectures">강의</a></li>
+        <li><a href="#archive">아카이브</a></li>
         <li><a href="#columns">칼럼</a></li>
         <li><a href="#book">도서</a></li>
         <li><a href="#qa">Q&amp;A</a></li>
@@ -696,6 +806,7 @@
 <div class="drawer" id="drawer">
     <a href="#intro"    onclick="closeDrawer()">소개</a>
     <a href="#lectures" onclick="closeDrawer()">강의</a>
+    <a href="#archive"  onclick="closeDrawer()">아카이브</a>
     <a href="#columns"  onclick="closeDrawer()">칼럼</a>
     <a href="#book"     onclick="closeDrawer()">도서</a>
     <a href="#qa"       onclick="closeDrawer()">Q&amp;A</a>
@@ -847,6 +958,292 @@
         <div style="text-align:center; margin-top:40px;">
             <a href="https://www.youtube.com/@leekrtv" target="_blank" class="btn-ink">이강락TV 전체 강의 보기 ↗</a>
         </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- 강의 아카이브 -->
+<section class="archive" id="archive">
+    <div class="inner reveal">
+        <div class="water-line"><span>LECTURE ARCHIVE</span></div>
+        <h2 class="brush-title">강의 아카이브</h2>
+        <p class="body-text" style="margin-bottom:12px;">
+            월드베스트 기업만들기 · CBMC 서부연합 4기<br>
+            매주 월요일 저녁 7시 — 이강락 대표의 30강 심층 경영 강의를 기록합니다.
+        </p>
+
+        <!-- 커리큘럼 로드맵 -->
+        <p class="section-tag" style="margin-top:40px;">CURRICULUM · 14장 30강</p>
+        <div class="curriculum-phases">
+            <div class="phase-card active">
+                <p class="phase-num">PHASE 1</p>
+                <p class="phase-title">생존과 기본기 다지기</p>
+                <div class="phase-chapters">
+                    <span class="current">1장. 경영이란? ◀</span><br>
+                    2장. TOC (제약이론)<br>
+                    3장. 소기업 매출 증대 전략
+                </div>
+            </div>
+            <div class="phase-card">
+                <p class="phase-num">PHASE 2</p>
+                <p class="phase-title">객관적 진단과 재무 관리</p>
+                <div class="phase-chapters">
+                    4장. 재무자료의 이해<br>
+                    5장. 기업체질 평가방법<br>
+                    6장. 기업 경영 분석<br>
+                    7장. 손익분기점 분석
+                </div>
+            </div>
+            <div class="phase-card">
+                <p class="phase-num">PHASE 3</p>
+                <p class="phase-title">현장 혁신과 조직 정렬</p>
+                <div class="phase-chapters">
+                    8장. 생산 시스템 개선<br>
+                    9장. BSC (균형성과기록표)<br>
+                    10장. 주인의식이란?<br>
+                    11장. 원가혁신
+                </div>
+            </div>
+            <div class="phase-card">
+                <p class="phase-num">PHASE 4</p>
+                <p class="phase-title">지속 성장과 문제해결</p>
+                <div class="phase-chapters">
+                    12장. 린 스타트업<br>
+                    13장. 문제해결 과정<br>
+                    14장. 실패에서 일어서기
+                </div>
+            </div>
+        </div>
+
+        <!-- 강의 목록 -->
+        <p class="section-tag">SESSIONS</p>
+
+        <!-- 제1강 -->
+        <div class="session-card">
+            <div class="session-header" onclick="toggleSession('s1')">
+                <div class="session-meta">
+                    <span class="session-num">1강</span>
+                    <span class="session-date">2026.04.06</span>
+                </div>
+                <div class="session-info">
+                    <p class="session-title">개강 — 사업하는 예수쟁이 특강 + 1장. 경영이란?</p>
+                    <p class="session-sub">사업하는 예수쟁이 특강 (48분) · 1장 경영이란? 총론 (47분)</p>
+                </div>
+                <button class="session-toggle" id="toggle-s1">▼</button>
+            </div>
+
+            <div class="session-body" id="body-s1">
+
+                <!-- Part 1: 사업하는 예수쟁이 특강 -->
+                <div class="part-block">
+                    <p class="part-label">PART 1 · 사업하는 예수쟁이 특강</p>
+                    <p class="part-title">이강락 대표 — 신앙·사업·선교의 여정</p>
+
+                    <div class="audio-player">
+                        <p class="audio-label">녹음 · 48분 44초</p>
+                        <audio controls preload="none">
+                            <source src="assets/lecture-20260406-part1.aac" type="audio/aac">
+                        </audio>
+                    </div>
+
+                    <div class="note-section">
+                        <h3 class="note-h3">신앙 경력</h3>
+                        <div class="note-content">
+                            <ul>
+                                <li>전남 나주교회에서 부모님과 신앙 시작. 광주 양림교회 중등부 <strong>3년 개근</strong> (미션스쿨 출석 도장 제도)</li>
+                                <li>고등학교 입학 후 교회를 안 다니는 친구들과 자신의 차이가 없음을 느끼고 <strong>교회를 떠남</strong></li>
+                                <li>대학교 1학년, ESF(한국기독학생회) 선교단체를 통해 <strong>인격적으로 예수 그리스도를 영접</strong> (1학년 2학기 가을)</li>
+                                <li>1981년 부평중앙교회 학습, 1982년 부산 온천제일교회 세례</li>
+                                <li>두구동교회 → 새한교회 → <strong>평광교회</strong> (1994년~현재)</li>
+                                <li>2004년 안수집사, <strong>2016년 장로 임직</strong> — 시무장로 10년차</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="note-section">
+                        <h3 class="note-h3">직업 경력</h3>
+                        <div class="note-content">
+                            <ul>
+                                <li><strong>서울대학교 공과대학 기계설계학과</strong> 졸업 (78학번, 82년 2월 졸)</li>
+                                <li><strong>대우정밀공업(주)</strong> 엔지니어 만 10년 (1982~1992) — 생산기술, 기술연구소, 제품개발</li>
+                                <li>1990년 <strong>기계기술사</strong> 자격 취득</li>
+                                <li><strong>한국능률협회컨설팅</strong> 소속 컨설턴트 (1992~1997)</li>
+                                <li>대학원 산업공학 석사 + 박사 수료, 1995년 <strong>산업응용기술사</strong> 취득</li>
+                                <li>1998년 <strong>케이알(KR)컨설팅 창업</strong> — 이름 이강락(LKR)에서 따옴. 해외에서는 "코리아 컨설팅"으로 불림</li>
+                                <li>1999년 중소기업청 추천 <strong>국가 3호 신지식인</strong> 임명</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="note-section">
+                        <h3 class="note-h3">창업 경험 — 10개 이상의 창업과 폐업</h3>
+                        <div class="note-content">
+                            <ul>
+                                <li><strong>아티진(IT)</strong> — 인터넷 비즈니스·온라인 교육 플랫폼. 전국 7등까지 올랐으나, 컨설팅과 병행 불가하여 선택과 집중으로 폐업</li>
+                                <li><strong>이츠(EATS)</strong> — 송도 뉴욕주립대 유학생 대상 교육·창업 지원. 대학 산학협력단 설립 후 업무 이관하며 폐업</li>
+                                <li><strong>알토스컨설팅그룹</strong> — 크리스천 컨설팅 회사 5곳이 연합. "오병이어"의 헬라어 '알토스'에서 작명. 각 사가 너무 잘 돼서 올인할 대표를 세울 수 없어 기도모임으로 전환 (2010~2015)</li>
+                                <li><strong>KR네트웍스</strong> — R&D·정부과제 컨설팅 전문. 관리 어려움으로 폐업</li>
+                                <li><strong>케이알컨설팅 차이나</strong> — 중국 항저우 설립. 하이얼 등 중국 기업 컨설팅 매년 1등 선정. 매출 100%를 선교 헌금. 2025년 자본금 제로로 만들어 <strong>하루 만에 전산 폐업</strong> 완료</li>
+                                <li><strong>이케이텍(EK Tech)</strong> — 크리스천 청년 디자이너들을 위해 서울 종로5가 광장시장에 <strong>봉제공장</strong> 설립 (2018). 재봉틀 100% 자동화 직접 설계. 노스페이스 납품, 베트남 가격으로 메이드인코리아 생산. 월매출 3억·순이익률 20% 달성. 공정거래위 조사(무혐의) 후 2025년 폐업</li>
+                            </ul>
+                            <div class="note-quote">
+                                "창업했다 폐업한 회사가 한 10개 돼요. 국세청에서 사업자 경력을 내라고 했더니 누락된 게 많다고 지적이 왔어요. 제가 대표이사로 있는 회사들이 너무나 많았더라고요."
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="note-section">
+                        <h3 class="note-h3">비즈니스 선교 활동</h3>
+                        <div class="note-content">
+                            <ul>
+                                <li><strong>아둘람 공동체 1기</strong> (2008~2013) — 크리스천 청년 창업자 멘토링. 매주 월요일 저녁 식사 교제 + 2시간 경영 강의 + Q&A. 제자들이 현재 사업 성공적으로 운영 중</li>
+                                <li><strong>아둘람 공동체 2기</strong> — 러시아 모스크바, 일본 도쿄, 베트남, 중국 전역, EU, 오만 등 <strong>30개국</strong>에서 활동 중</li>
+                                <li><strong>GBS</strong> (글로벌브릿지오브셰어링) — 2009년 창립멤버, 이사장(~2015). 한국 교회가 중국 교회를 도와 세계 선교하도록 돕는 단체</li>
+                                <li><strong>열방네트워크</strong> — '비즈미션' 용어를 만든 비즈니스 선교 전문 단체. 2010년부터 이사로 활동</li>
+                                <li><strong>글로벌창업네트워크(GSN)</strong> — 요셉비즈니스스쿨 운영. 6년간 약 100명 양성, 65개 크리스천 기업 배출. <strong>1기 멤버가 와디즈 창업자</strong></li>
+                                <li><strong>블레싱재팬</strong> — 일본 선교 단체 이사장(2022~). 100여 명의 한국 선교사가 일본 교회 파송</li>
+                                <li><strong>SFK</strong> (시너지포킹덤) — 해외 선교사 대상 비즈니스 훈련. 2015년 창립멤버·주강사. 매년 2주간 선교지 방문 컨설팅. 2026년 8월 우즈베키스탄·키르기스스탄·카자흐스탄 방문 예정</li>
+                                <li><strong>연변 비즈니스리더십캠프</strong> — 2024년 6명 → 2025년 12명 양성. 제자들이 '창경'이라는 교육·컨설팅 회사를 연변에 설립</li>
+                                <li><strong>CBMC 서부연합</strong> 경영고문 — 세계최고의 기업만들기 특강 100회 완료 (2023년 30회, 2024년 40회, 2025년 30회). 2026년 4기 30회 시작</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="note-section">
+                        <h3 class="note-h3">제자 기업 대표 사례</h3>
+                        <div class="note-content">
+                            <ul>
+                                <li><strong>제이스메디컬</strong> (강동환 대표) — 성형외과 의료기기 제조. 매출 100억·적자 25억 → 2020년 코스닥 상장, 시가총액 1조 돌파. 해당 분야 세계 1등. 선교 헌금 30억</li>
+                                <li><strong>허브공동체</strong> — 기독교 일터 공동체. 20개 사업자등록, 5천 개 제자기업 양성 목표. <strong>신용불량자·파산자만 받아 회생</strong>시키는 사역. 소망교도소 출소자 자립 지원을 위해 반찬공장 인수</li>
+                                <li><strong>드림스드림</strong> — 가난한 나라에 학교 건립. 5년 만에 100개 달성 → 목표를 "만방에 만 개"로 상향. 현재 350개+, 건당 약 2,500만원</li>
+                                <li><strong>하우코칭</strong> (현민수 코치) — 코칭사관학교 운영</li>
+                                <li><strong>팀사운드</strong> (박경배 대표) — 교회 음향 엔지니어 스쿨. 졸업생 1.5만 명, 대한민국 중대형 교회 음향 담당 100% 배출</li>
+                                <li><strong>벤스톤</strong> (최현진 대표) — 인천공항 서비스 (기내 청소, 휠체어, 의전)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="materials-row">
+                        <span class="mat-chip">📄 사업하는 예수쟁이 특강 PPT</span>
+                    </div>
+                </div>
+
+                <!-- Part 2: 1장. 경영이란? -->
+                <div class="part-block">
+                    <p class="part-label">PART 2 · 월드베스트 기업만들기 교재 1장</p>
+                    <p class="part-title">경영이란? — 사업의 본질과 생존의 조건</p>
+
+                    <div class="audio-player">
+                        <p class="audio-label">녹음 · 47분 6초</p>
+                        <audio controls preload="none">
+                            <source src="assets/lecture-20260406-part2.aac" type="audio/aac">
+                        </audio>
+                    </div>
+
+                    <div class="note-section">
+                        <h3 class="note-h3">강의 구성 안내</h3>
+                        <div class="note-content">
+                            교재는 전체 14장, 한 장당 1~2회 강의. 약 28~30회 진행 예정.<br>
+                            1장은 전체를 아우르는 <strong>총론·개론</strong>으로, 2장~14장 내용과 약 90% 중복. 오늘은 중복되지 않는 앞부분 핵심만 다룸.
+                        </div>
+                    </div>
+
+                    <div class="note-section">
+                        <h3 class="note-h3">1. 사업의 특징 — 지속적인 변화는 필수</h3>
+                        <div class="note-content">
+                            사업에서 변화는 선택이 아니라 <strong>필수</strong>다. 변화의 도전이 끊임없이 오고, 그에 대한 응전이 필요하다.
+                            <ul>
+                                <li><strong>고객 기대치의 변화</strong> — 만족시켜도 유효기간은 몇 달. 시간이 지나면 "그건 당연한 것"이 되고 새로운 것을 요구. 인간의 욕망이 무한하기에 완전한 만족은 불가능</li>
+                                <li><strong>경쟁업체 등장</strong> — 누가 돈 번다는 순간 바로 생김. 독점의 유효기간은 짧음. 나보다 자본 센 경쟁자가 옆에 서면 위축됨</li>
+                                <li><strong>직원의 이직</strong> — "채용할 권리는 있지만 이직을 막을 권리는 없다." 후계자로 점찍은 3명 모두 떠남</li>
+                                <li><strong>협력업체 이탈</strong> — 충성심은 없음. 더 좋은 조건을 제시하는 곳이 나타나면 바로 옮김</li>
+                                <li><strong>법규 변화</strong> — 전기차, 연비 규제 등 법규가 기존 업체를 곤란하게 만듦</li>
+                            </ul>
+                            <div class="note-case">
+                                <p class="note-case-label">사례 — 삼성전자의 변화</p>
+                                1992년 삼성전자는 백색가전(냉장고, 세탁기) 회사였다. LG전자 매출 2배를 목표로 삼던 회사가, 반도체 → 핸드폰(애니콜) → 스마트폰(갤럭시) → 반도체 칩으로 변화. <strong>회사 이름은 같지만 안의 제품 구성이 100% 바뀌었다.</strong>
+                            </div>
+                            <div class="note-case">
+                                <p class="note-case-label">사례 — 10년 생존한 벤처기업</p>
+                                "벤처기업은 변화가 심하기 때문에 3년마다 아이템을 100% 바꿨습니다. 지금 네 번째 사업 중이에요. 10년 전 동종업계 중 살아있는 회사는 저희뿐입니다. <strong>아이템을 안 바꿨기 때문에 다 사라졌습니다.</strong>"
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="note-section">
+                        <h3 class="note-h3">2. 사업의 구성요소 — 4가지 균형</h3>
+                        <div class="note-content">
+                            <ul>
+                                <li><strong>자본금</strong> (주주)</li>
+                                <li><strong>아이템·기술력</strong></li>
+                                <li><strong>영업력</strong> (목표 고객)</li>
+                                <li><strong>관리력</strong> (동료)</li>
+                            </ul>
+                            이 4가지를 <strong>한 사람이 다 갖추기는 거의 불가능</strong>. 그래서 네트워크, 팀워크, 동역, 파트너가 반드시 필요. 나의 단점을 장점으로 가진 사람과 함께 일해야 약점이 보완된다.
+                            <div class="note-case">
+                                <p class="note-case-label">사례 — 한국델파이 출신 사장</p>
+                                생산기술 부장 출신으로 일은 퍼펙트. 독립 후 기계 소리가 "돈돈돈돈"으로 들릴 만큼 일에 푹 빠져 흑자를 냈다. 그런데 은행 지점장 말만 듣고 300평짜리 회사가 2만 평 공단 땅을 매입. 임대가 빠지면서 대출 이자를 감당 못해 <strong>결국 합병</strong>. <em>일은 잘했지만 재무 균형 감각이 없었다.</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="note-section">
+                        <h3 class="note-h3">3. 손익분기점(BEP) 매출액</h3>
+                        <div class="note-content">
+                            <ul>
+                                <li><strong>한계이익(마진)</strong> = 매출액 − 변동비. 영어 Margin이 한국어로 한계이익(=공헌이익)</li>
+                                <li><strong>한계이익률</strong> = 한계이익 ÷ 매출액</li>
+                                <li><strong>손익분기점 매출액</strong> = 고정비 ÷ 한계이익률</li>
+                            </ul>
+                            핵심: 분자(고정비)와 분모(한계이익률) <strong>모두 변동시킬 수 있다</strong>. 고정된 숫자가 아니다!
+                            <div class="note-case">
+                                <p class="note-case-label">사례 — 153부대찌개 (용인)</p>
+                                쓰레기 매립장 부지를 임대받아 <strong>고정비를 거의 제로</strong>로 만듦. 토마토+우유 육수로 웰빙 차별화. 부대찌개의 재료비율은 약 20%, 즉 <strong>마진율 80%</strong>. 일반 식당(마진 50%)과 완전히 다른 구조.
+                            </div>
+                            <div class="note-case">
+                                <p class="note-case-label">사례 — 우편통신교육 사업의 반전</p>
+                                이강락 대표가 직장인 독서 사업을 했으나, 책 3권(4.5만원) 보내며 마진율 50%로 수익이 안 남아 폐업. 그 사업을 받아간 청년은 컨설턴트들에게 <strong>강의 파일을 무료로</strong> 받아 3분할 복사(건당 1,500원)로 보냄. 마진율 90%로 대박. <em>"저같이 하면 안 되죠" — 같은 사업, 다른 원가 구조가 운명을 갈랐다.</em>
+                            </div>
+                            <div class="note-quote">
+                                "어느 회사 고정비라도 자세히 들여다보면 30% 줄일 수 있다. 고정비만 30% 줄이면 손익분기점 매출도 30% 줄어든다."
+                            </div>
+                            <strong>경영자의 선택</strong>: 손익분기점을 못 낮추면 → 매출 증대로 가야. 둘 중 하나는 반드시 해야 회사가 생존한다.
+                        </div>
+                    </div>
+
+                    <div class="note-section">
+                        <h3 class="note-h3">4. 매출액 증대 전략 — 3가지 팩터</h3>
+                        <div class="note-content">
+                            <strong>매출액 = 고객수 × 객단가 × 재구매율</strong>
+                            <ul>
+                                <li><strong>고객수 증가</strong> — 고객 리스트를 작성하고, 어떻게 늘릴 것인가를 고민</li>
+                                <li><strong>객단가 증가</strong> — 고객 1인당 평균 매출액을 높이는 전략. 세트 판매, 추가 상품 제안</li>
+                                <li><strong>재구매율 증가</strong> — 충성 고객, 단골. 마일리지, 도장 적립 등</li>
+                            </ul>
+                            각 30%씩만 올려도: 1.3 × 1.3 × 1.3 = <strong>약 2.2배 매출 증대</strong>
+                            <div class="note-case">
+                                <p class="note-case-label">사례 — 85도씨 (중국 1등 커피숍)</p>
+                                중국인은 아침을 집에서 안 먹고 출근길에 해결. 85도씨는 <strong>빵+커피 세트 판매</strong>로 객단가를 높임. 커피만 100원 → 세트로 150~180원. 커피 물 온도 85도가 가장 맛있어서 85도씨.
+                            </div>
+                            <div class="note-case">
+                                <p class="note-case-label">사례 — 마켓컬리 객단가의 놀라움</p>
+                                한 달에 <strong>1천만 원 이상</strong> 구매하는 고객이 3만 명. 처음에는 신선식품 몇 만원이었으나, 이유식 → 반려동물 사료 → 일품요리 → 주방용품 → 화장품까지 확장. <strong>가정주부가 필요한 모든 것을 마켓컬리에서 구매</strong>하는 구조.
+                            </div>
+                            <div class="note-quote">
+                                어느 사장님의 월간 스케줄을 분석했더니 — 매출 증대에 직접 관계되는 활동에 동그라미, 간접은 삼각형, 무관은 X표를 쳤는데, <strong>X가 70%, 삼각형 29%, 동그라미 1개</strong>. 매출 활동을 0%로 하면서 매출이 안 느는다고 고민하는 건 말이 안 된다.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="materials-row">
+                        <span class="mat-chip">📕 월드베스트 기업만들기 교재 1장</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -1047,6 +1444,14 @@
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    /* ── 강의 아카이브 토글 ── */
+    function toggleSession(id) {
+        const body = document.getElementById('body-' + id);
+        const toggle = document.getElementById('toggle-' + id);
+        body.classList.toggle('open');
+        toggle.classList.toggle('open');
+    }
 
     /* ════════════════════════════
        Q&A 게시판
