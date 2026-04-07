@@ -423,7 +423,7 @@
         /* 게시판 테이블 헤더 */
         .board-table-head {
             display:grid;
-            grid-template-columns: 52px 1fr 80px 96px 80px;
+            grid-template-columns: 52px 1fr 80px;
             gap:0; padding:10px 16px;
             background:var(--ink); color:var(--paper);
             font-size:.8em; font-weight:700; letter-spacing:.5px;
@@ -442,7 +442,7 @@
         .board-item:hover { background:#F5F0E5; }
         .board-item-row {
             display:grid;
-            grid-template-columns: 52px 1fr 80px 96px 80px;
+            grid-template-columns: 52px 1fr 80px;
             gap:0; padding:14px 16px;
             align-items:center;
         }
@@ -663,10 +663,8 @@
         }
 
         @media(max-width:640px) {
-            .board-table-head { grid-template-columns: 40px 1fr 64px 0 64px; }
-            .board-table-head span:nth-child(4) { display:none; }
-            .board-item-row  { grid-template-columns: 40px 1fr 64px 0 64px; }
-            .bi-date { display:none; }
+            .board-table-head { grid-template-columns: 40px 1fr 64px; }
+            .board-item-row  { grid-template-columns: 40px 1fr 64px; }
         }
 
         /* ══ 강의 아카이브 ══ */
@@ -1485,8 +1483,6 @@
             <span>번호</span>
             <span>제목</span>
             <span>작성자</span>
-            <span>날짜</span>
-            <span>상태</span>
         </div>
 
         <!-- 게시물 목록 -->
@@ -1594,9 +1590,6 @@
             const num   = posts.length - i;
             const isNew = (Date.now() - p.id) < 86400000;
             const title = p.title || p.content.slice(0, 40) + (p.content.length > 40 ? '…' : '');
-            const answered = p.answer
-                ? '<span class="status-answered">답변완료</span>'
-                : '<span class="status-waiting">대기중</span>';
 
             return `
             <div class="board-item" id="item-${p.id}">
@@ -1605,10 +1598,9 @@
                     <span class="bi-title">
                         ${escHtml(title)}
                         ${isNew ? '<span class="new-badge">NEW</span>' : ''}
+                        ${p.answer ? '<span class="status-answered" style="font-size:.7em;margin-left:4px;">답변완료</span>' : ''}
                     </span>
                     <span class="bi-name">${escHtml(p.name)}</span>
-                    <span class="bi-date">${fmtDate(p.id)}</span>
-                    <span class="bi-status">${answered}</span>
                 </div>
                 <div class="board-detail ${openId === p.id ? 'open' : ''}" id="detail-${p.id}">
                     ${buildDetail(p)}
