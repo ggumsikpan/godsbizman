@@ -4,7 +4,7 @@
 - **플랫폼명**: 사업하는 예수쟁이
 - **GitHub 레포**: https://github.com/ggumsikman/godsbizman
 - **라이브 URL**: https://ggumsikman.github.io/godsbizman
-- **로컬 경로**: `C:\Users\leese\jesusbiz-platform\`
+- **로컬 경로**: `C:\Users\leese\godsbizman\`
 - **제작자**: 꿈식판 꿈식맨 (이석훈)
 
 ## 주인공
@@ -24,7 +24,7 @@
 
 ## 파일 구조
 ```
-jesusbiz-platform/
+godsbizman/
 ├── index.html        # 메인 파일 (전부 단일 파일로 구성)
 ├── assets/
 │   ├── profile.jpg   # 이강락 대표 프로필 사진
