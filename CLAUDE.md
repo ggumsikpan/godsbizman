@@ -70,5 +70,5 @@ godsbizman/
 - 단일 HTML 파일로 유지 (CSS/JS 인라인)
 - 새 이미지는 `assets/` 폴더에 저장
 - 작업 후 반드시 git commit + push
-- 관리자 비밀번호: 1234 (추후 변경 예정)
+- 관리자 비밀번호: 240709 (Vercel 환경변수 ADMIN_PW로 관리)
 - 브랜치: master
